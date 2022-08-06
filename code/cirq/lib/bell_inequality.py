@@ -14,45 +14,83 @@ class CHSHBell(object):
         self.repetitions = repetitions
     
     def setup(self):
-        self.alice_recv = cirq.GridQubit(0, 0)
-        self.bob_recv = cirq.GridQubit(1, 0)
-        self.alice_retn = cirq.GridQubit(0, 1)
-        self.bob_retn = cirq.GridQubit(1, 1)
+        alice_recv = cirq.GridQubit(0, 0)
+        bob_recv = cirq.GridQubit(1, 0)
+        alice_retn = cirq.GridQubit(0, 1)
+        bob_retn = cirq.GridQubit(1, 1)
+        return alice_recv, bob_recv, alice_retn, bob_retn
 
-    def make_bell_test_circuit(self):
-        self.setup()
+    def make_quantum_bell_test_circuit(self, alice_recv, bob_recv, alice_retn, bob_retn):
         circuit = cirq.Circuit()
 
         # Prepare shared entangled state.
-        circuit.append([cirq.H(self.alice_recv), cirq.CNOT(self.alice_recv, self.bob_recv)])
+        circuit.append([cirq.H(alice_recv), cirq.CNOT(alice_recv, bob_recv)])
 
         # Referees flip coins.
-        circuit.append([cirq.H(self.alice_retn), cirq.H(self.bob_retn)])
+        circuit.append([cirq.H(alice_retn), cirq.H(bob_retn)])
 
         # Players do a sqrt(X) based on their referee's coin.
         circuit.append(
-            [cirq.X(self.alice_recv) ** -0.25,
-             cirq.CNOT(self.alice_retn, self.alice_recv) ** 0.5,
-             cirq.CNOT(self.bob_retn, self.bob_recv) ** 0.5]
+            [cirq.X(alice_recv) ** -0.25,
+             cirq.CNOT(alice_retn, alice_recv) ** 0.5,
+             cirq.CNOT(bob_retn, bob_recv) ** 0.5]
         )
-
         # Then results are recorded.
         circuit.append(
             [
-                cirq.measure(self.alice_recv, key='a'),
-                cirq.measure(self.alice_recv, key='b'),
-                cirq.measure(self.alice_retn, key='x'),
-                cirq.measure(self.bob_retn, key='y'),
+                cirq.measure(alice_recv, key='a'),
+                cirq.measure(alice_recv, key='b'),
+                cirq.measure(alice_retn, key='x'),
+                cirq.measure(bob_retn, key='y'),
+            ]
+        )
+        return circuit
+
+    def run_quantum_bell_test(self):
+        alice_recv, bob_recv, alice_retn, bob_retn = self.setup()
+        self.circuit = self.make_bell_test_circuit(alice_recv, bob_recv, alice_retn, bob_retn)
+        print('Circuit:')
+        print(self.circuit)
+
+        repetitions = 75
+        print(f'Simulating {repetitions} repetitions...')
+        result = cirq.Simulator().run(program=self.circuit, repetitions=self.repetitions)
+
+        # Collect results.
+        a = np.array(result.measurements['a'][:, 0])
+        b = np.array(result.measurements['b'][:, 0])
+        x = np.array(result.measurements['x'][:, 0])
+        y = np.array(result.measurements['y'][:, 0])
+        outcomes = a ^ b == x & y
+        win_percent = len([e for e in outcomes if e]) * 100 / repetitions
+
+        # Print data.
+        print('Quantum best case results')
+        print('a:', bitstring(a))
+        print('b:', bitstring(b))
+        print('x:', bitstring(x))
+        print('y:', bitstring(y))
+        print('(a XOR b) == (x AND y):\n  ', bitstring(outcomes))
+        print(f'Win rate: {win_percent}%')
+
+    def make_classical_bell_test_circuit(self, alice_recv, bob_recv, alice_retn, bob_retn):
+        circuit = cirq.Circuit()
+        circuit.append(cirq.CNOT(alice_retn, alice_recv))
+        circuit.append(cirq.CNOT(bob_retn, bob_recv))
+        # Then results are recorded.
+        circuit.append(
+            [
+                cirq.measure(alice_recv, key='a'),
+                cirq.measure(alice_recv, key='b'),
+                cirq.measure(alice_retn, key='x'),
+                cirq.measure(bob_retn, key='y'),
             ]
         )
         return circuit
 
     def run_classical_bell_test(self):
-        self.setup()
-        circuit = cirq.Circuit()
-        circuit.append(cirq.CNOT(self.alice_retn, self.alice_recv))
-        circuit.append(cirq.CNOT(self.bob_retn, self.bob_recv))
-
+        alice_recv, bob_recv, alice_retn, bob_retn = self.setup()
+        self.circuit = self.make_bell_test_circuit(alice_recv, bob_recv, alice_retn, bob_retn)
         print('Circuit:')
         print(circuit)
 
@@ -78,36 +116,10 @@ class CHSHBell(object):
         print(f'Win rate: {win_percent}%')
 
 
-    def run_quantum_bell_test(self):
-        self.circuit = self.make_bell_test_circuit()
-        print('Circuit:')
-        print(self.circuit)
-
-        repetitions = 75
-        print(f'Simulating {repetitions} repetitions...')
-        result = cirq.Simulator().run(program=self.circuit, repetitions=self.repetitions)
-
-        # Collect results.
-        a = np.array(result.measurements['a'][:, 0])
-        b = np.array(result.measurements['b'][:, 0])
-        x = np.array(result.measurements['x'][:, 0])
-        y = np.array(result.measurements['y'][:, 0])
-        outcomes = a ^ b == x & y
-        win_percent = len([e for e in outcomes if e]) * 100 / repetitions
-
-        # Print data.
-        print('Quantum best case results')
-        print('a:', bitstring(a))
-        print('b:', bitstring(b))
-        print('x:', bitstring(x))
-        print('y:', bitstring(y))
-        print('(a XOR b) == (x AND y):\n  ', bitstring(outcomes))
-        print(f'Win rate: {win_percent}%')
-
-
 def main():
     belltest = CHSHBell()
-    belltest.run_bell_test()
+    belltest.run_classical_bell_test()
+    belltest.run_quantum_bell_test()
     # # Create circuit.
     # circuit = make_bell_test_circuit()
     # print('Circuit:')
