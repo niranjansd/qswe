@@ -4,36 +4,47 @@ description: The flagship experiment of quantum physics
 
 # Bell Inequality
 
-[Bell's theorem](https://en.wikipedia.org/wiki/Bell's\_theorem) proves that quantum entanglement cannot be explained by any [local realist theory](https://en.wikipedia.org/wiki/Principle\_of\_locality#Quantum\_mechanics). Bell inequality has been tested experimentally for more than 50 years and has proven conclusively that reality is not local realist, **reality is quantum**.
+{% hint style="info" %}
+Code: [Cirq](../code/cirq/bell-inequality.md)
+{% endhint %}
+
+[Bell's theorem](https://en.wikipedia.org/wiki/Bell's\_theorem) proves that [quantum entanglement](https://en.wikipedia.org/wiki/Quantum\_entanglement) cannot be explained by any [local realist theory](https://en.wikipedia.org/wiki/Principle\_of\_locality#Quantum\_mechanics). Bell inequality has been tested experimentally for more than 50 years and has proven conclusively that reality does not obey local realist classical physics, **reality is quantum**.
+
+There are many ways to setup an experiment that demonstrates Bell Inequality. We will look at one that is close to quantum computing.
 
 ### Objective
 
-Setup an experiment showing that entangled states are nonlocal, i.e. measuring one part of the entangled state affects the other part instantaneously. In other words, demonstrate "spooky action at a distance".
-
-### Prerequisite
-
-* An oracle that can create 2 qubits in any arbitrary state and send 1 qubit to Alice and 1 to Bob.&#x20;
-* Alice and Bob can measure their qubits in any basis.
-* Alice and Bob can decide together what bases they use, but they cannot change the basis based on the other measurement. This can be enforced by making the distance between them is greater than what light can travel in the time difference between the two measurements.
-
-### Run protocol
-
-Alice and Bob are told what state the oracle makes. If Alice receives state x and Bob receives state y respectively and Alice's measurement returns a and Bob's returns b, then their goal is choose a basis such that&#x20;
+Victor is the dealer. Every round, Victor sends 1 random qubit to Alice, x, and 1 random qubit to Bob, y. Alice then returns 1 qubit to Victor, a, as does Bob, b. Alice and Bob win the round if logical AND of x, y is the logical XOR of a, b.
 
 $$
-a XOR b = x AND y
+x \land b =a \oplus  b
 $$
 
-For every state made by the oracle, the experiment is run many times and Alice and Bob report the probability of the condition being true.
+### Prerequisites
+
+* Victor's bits x, y are picked at random.
+* Alice and Bob can perform any operations they want on x and y. They could also just have two readymade qubits a and b to send back.
+* Before the experiment starts**,** Alice and Bob can agree on their team's strategy. But they cannot communicate during the experiment, e.g. by measuring 1 qubit and then deciding what to do with the other qubit.
 
 ### Classical best case
 
-For any product state the oracle makes, i.e. Alice's state is separable from Bob's state,  Alice and Bob can only win at most 75% of the time.
+It can be proven that the best classical strategy Alice and Bob can use is "_do nothing, just return 0"_, which has a 75% win rate.
+
+### Run protocol
+
+The best quantum strategy Alice and Bob can use involves the use of quantum entanglement.&#x20;
+
+1. Before the experiment, Alice and Bob create an entangled pair of qubits, a and b. Alice keeps a and Bob keeps b.
+2. During the experiment, Alice entangled her received qubit x with a. Bob entangled his received qubit y with b.
+3. Alice returns a, x and Bob returns b, y to Victor.
+4. Victor measures the quantities $$a \oplus b$$ and $$x \land y$$​.
 
 ### Quantum best case
 
-If the oracle makes an entangled Bell state, Alice and Bob can find a basis that wins 85% of the time.&#x20;
+In the quantum protocol, all 4 qubits x, y, a and b are entangled, therefore their measurement results are correlated. Therefore, we find that the best quantum strategy can get a 85.3% win rate.
 
-### Real case
+### Expectation vs Reality
 
-In practice, entangled states decohere due to noise. Therefore 85% is never achievable in practice. However, exceeding 75% is used as a proof that the oracle is indeed making non-classical, at least partially entangled states.
+* An individual round results in a binary result, win or loss. The win rate is the probability of winning and requires a large number of rounds to observed in practice.
+* In practice, entangled states decohere due to noise. Therefore 85.3% which is the maximum win rate possible is hard to achieve in practice.&#x20;
+* Making entangled states in the lab is hard. Bell inequality violation, i.e. achieving an observed win rate > 75%, is used as proof that non-classical, entangled states are being created in the lab.
