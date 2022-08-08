@@ -16,3 +16,7 @@
   * [Bell Inequality](code/cirq/bell-inequality.md)
 * [Qiskit](code/qiskit/README.md)
   * [Bell Inequality](code/qiskit/bell-inequality.md)
+
+***
+
+* [Contact](contact.md)
