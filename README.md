@@ -1,6 +1,6 @@
 # Welcome
 
-Welcome to Quantum Software Engineer homepage.&#x20;
+Welcome to Quantum Software Engineer homepage. [Sign up for email updates](https://mailchi.mp/ffae712ee87b/quantum-software-engineer-homepage).
 
 ### What is Quantum Software Engineering?
 
@@ -24,5 +24,5 @@ This might interest you if you -
 
 ### That sounds great? How do I follow this?
 
-Sign up for the newsletter here. You will be updated whenever we push a new update to the site.
+[Sign up for the newslette](https://mailchi.mp/ffae712ee87b/quantum-software-engineer-homepage)r. You will be updated whenever we push a new update to the site.
 
