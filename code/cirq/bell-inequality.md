@@ -6,7 +6,7 @@ description: Cirq implementation of Bell Inequality
 
 > [Bell Inequality Simulator on Github](lib/bell\_inequality.py)
 >
-> [Colab example](notebooks/Bell\_Inequality.ipynb)
+> [Colab example](https://githubtocolab.com/niranjansd/qswe/blob/main/code/cirq/notebooks/Cirq\_Bell\_Inequality.ipynb)
 
 ```
 !pip install cirq
