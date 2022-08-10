@@ -4,9 +4,9 @@ description: Cirq implementation of Bell Inequality
 
 # Bell Inequality
 
-> [Bell Inequality Simulator](lib/bell\_inequality.py)
+> [Bell Inequality Simulator on Github](lib/bell\_inequality.py)
 >
-> [Colab Example](notebooks/Bell\_Inequality.ipynb)
+> [Colab example](notebooks/Bell\_Inequality.ipynb)
 
 ```
 !pip install cirq
