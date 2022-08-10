@@ -4,9 +4,7 @@ Welcome to Quantum Software Engineer homepage. [Sign up for email updates](https
 
 ### What is Quantum Software Engineering?
 
-Wikipedia definitions of software engineering are strangely circular.
-
-I define software engineering as the development, extension, optimization and maintenance of a programming language or its parts. The programming language is how the intentions of humans are communicated to machines who execute the instructions they receive.
+Software engineering is the development, extension, optimization and maintenance of a programming language or its parts. The programming language is how the intentions of humans are communicated to machines who execute the instructions they receive.
 
 With the invention of quantum computers, we need languages to communicate efficiently with a whole new type of machine.
 
