@@ -1,20 +1,18 @@
 # Welcome
 
-Welcome to Quantum SWE.&#x20;
+Welcome to Quantum Software Engineer homepage. [Sign up for email updates](https://mailchi.mp/ffae712ee87b/quantum-software-engineer-homepage).
 
-### Who am I?
+### What is Quantum Software Engineering?
 
-[Twitter](https://twitter.com/nirsd)
+Software engineering is the development, extension, optimization and maintenance of a programming language or its parts. The programming language is how the intentions of humans are communicated to machines who execute the instructions they receive.
 
-[Wordpress](https://nirsd.wordpress.com/)
+With the invention of quantum computers, we need languages to communicate efficiently with a whole new type of machine.
 
-### Why am I doing this?
+> _"The challenge of quantum software engineering is to rework and extend the whole of classical software engineering into the quantum domain so that programmers can manipulate quantum programs with the same ease and confidence that they manipulate today’s classical programs.”_&#x20;
 
-I love Quantum. I have been reading about it at least since 8th grade until I finished my PhD in Quantum Optics and Quantum Information. After that my career somehow led me into ML research. ML Research is fun, but sometimes I get Quantum FOMO. So this is me dealing with it and staying current on the quantum.
+### What is this website about?
 
-### Why would you follow this?
-
-I am exploring the state of the quantum computing industry from the perspective of a Software Engineer.
+We will document both the foundational algorithms and latest state-of-the-art software implementations of quantum computing, all from the perspective of a Software Engineer.
 
 This might interest you if you -
 
@@ -22,4 +20,7 @@ This might interest you if you -
 * know a bit of quantum physics but not quantum computing, and/or
 * want to keep up with the latest progress in the rapidly evolving quantum computing industry.
 
-If you find any of this useful, I would love to hear your feedback.&#x20;
+### That sounds great? How do I follow this?
+
+[Sign up for the newslette](https://mailchi.mp/ffae712ee87b/quantum-software-engineer-homepage)r. You will be updated whenever we push a new update to the site.
+
