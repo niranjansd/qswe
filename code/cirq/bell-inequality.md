@@ -4,11 +4,9 @@ description: Cirq implementation of Bell Inequality
 
 # Bell Inequality
 
-> [Colab example](https://githubtocolab.com/niranjansd/qswe/blob/main/code/cirq/notebooks/Cirq\_Bell\_Inequality.ipynb)
+> [Open in Colab notebook](https://githubtocolab.com/niranjansd/qswe/blob/main/code/cirq/notebooks/Cirq\_Bell\_Inequality.ipynb)
 
 ```
-!pip install cirq --quiet
-
 ## Imports
 import numpy as np
 import cirq
