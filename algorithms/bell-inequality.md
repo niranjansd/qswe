@@ -8,9 +8,9 @@ description: The flagship experiment of quantum physics
 Code: [Cirq](../code/cirq/bell-inequality.md)
 {% endhint %}
 
-[Bell's theorem](https://en.wikipedia.org/wiki/Bell's\_theorem) proves that [quantum entanglement](https://en.wikipedia.org/wiki/Quantum\_entanglement) cannot be explained by any [local realist theory](https://en.wikipedia.org/wiki/Principle\_of\_locality#Quantum\_mechanics). Bell inequality has been tested experimentally for more than 50 years and has proven conclusively that reality does not obey local realist classical physics, **reality is quantum**.
+[Bell's theorem](https://en.wikipedia.org/wiki/Bell's\_theorem) proves that [quantum entanglement](https://en.wikipedia.org/wiki/Quantum\_entanglement) cannot be explained by any [local realist theory](https://en.wikipedia.org/wiki/Principle\_of\_locality#Quantum\_mechanics). Bell inequality has been tested experimentally for more than 50 years and has proven conclusively that our physical reality always violates the inequality, i.e. **reality is quantum**.
 
-There are many ways to setup an experiment that demonstrates Bell Inequality. We will look at one that is close to quantum computing.
+There are many ways to setup an experiment that tests Bell Inequality. We will look at one that is close to quantum computing.
 
 ### Objective
 
@@ -26,11 +26,11 @@ $$
 * Alice and Bob can perform any operations they want on x and y. They could also just have two readymade qubits a and b to send back.
 * Before the experiment starts**,** Alice and Bob can agree on their team's strategy. But they cannot communicate during the experiment, e.g. by measuring 1 qubit and then deciding what to do with the other qubit.
 
-### Classical best case
+### Classical protocol
 
-It can be proven that the best classical strategy Alice and Bob can use is "_do nothing, just return 0"_, which has a 75% win rate.
+It can be proven that the best strategy Alice and Bob can use is "_do nothing, just return 0"_, which has a 75% win rate.
 
-### Run protocol
+### Quantum protocol
 
 The best quantum strategy Alice and Bob can use involves the use of quantum entanglement.&#x20;
 

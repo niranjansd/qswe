@@ -4,7 +4,7 @@ description: Cirq implementation of Bell Inequality
 
 # Bell Inequality
 
-> [Colab example](notebooks/Cirq\_Bell\_Inequality.ipynb)
+> [Colab example](https://githubtocolab.com/niranjansd/qswe/blob/main/code/cirq/notebooks/Cirq\_Bell\_Inequality.ipynb)
 
 ```
 !pip install cirq --quiet
