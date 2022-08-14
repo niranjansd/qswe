@@ -1,3 +1,3 @@
 # Contact
 
-If you would like to provide feedback or contribute to this project, dm at [Twitter](https://twitter.com/QuantumSWE)
+If you would like to provide feedback or contribute to this project, dm at [Twitter](https://twitter.com/QuantumSWE) or email at contactqswe@gmail.com.
