@@ -34,7 +34,7 @@ Encoding information in the phase allows us to perform certain computations with
 
 ### Running the algorithm
 
-To identify if $$f(0)==f(1)$$, we can calculate $$f(0) \oplus f(1)$$. Thanks to quantum superposition, we can do that with just **1 query of the oracle**.
+To identify if $$f(0)==f(1)$$, we can calculate $$f(0) \oplus f(1)$$. Thanks to quantum superposition and phase kickback, we can do that with just **1 query of the oracle**.
 
 1. Prepare two qubits in the $$|+\rangle_1|-\rangle_2$$​ state.
 2.  Apply the oracle such that $$O|+\rangle_1|-\rangle_2 = |+\rangle_1|f(+)\oplus -\rangle_2$$.
