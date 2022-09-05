@@ -12,17 +12,19 @@ Code : [Cirq](../code/cirq/deutsch.md)
 
 ### Objective
 
-Consider an unknown function that maps {0, 1} to {0, 1}. We want to know if $$f(0)==f(1)$$ .
-
-### Prerequisites
-
-We have two qubits. We can design a circuit with any gates including a black box oracle gate that implements the unknown function.
+Consider an unknown function that maps $$\{0,1\} \rightarrow \{0,1\}$$. We want to know if $$f(0)==f(1)$$ .
 
 ### Classical protocol
 
 The only way to get the answer is to measure f(0) and f(1), i.e. **query the oracle twice**.
 
-### Phase kickback
+### Quantum protocol
+
+#### Prerequisites
+
+We have 2 qubits. We can design a circuit with any gates including a black box oracle gate that implements the unknown function.
+
+#### Phase kickback
 
 Phase kickback is the workhorse in almost every quantum algorithm.&#x20;
 
@@ -32,12 +34,12 @@ Qubits have one additional degree of freedom which is phase. For example, $$Z|1\
 
 Encoding information in the phase allows us to perform certain computations with exponentially fewer qubits. However, this new kind of information encoding also makes it very difficult and non-intuitive to create new quantum computing algorithms.
 
-### Running the algorithm
+#### Running the algorithm
 
 To identify if $$f(0)==f(1)$$, we can calculate $$f(0) \oplus f(1)$$. Thanks to quantum superposition and phase kickback, we can do that with just **1 query of the oracle**.
 
 1. Prepare two qubits in the $$|+\rangle_1|-\rangle_2$$​ state.
-2.  Apply the oracle such that $$O|+\rangle_1|-\rangle_2 = |+\rangle_1|f(+)\oplus -\rangle_2$$.
+2.  Apply the oracle such that $$O|+\rangle_1|-\rangle_2 = |+\rangle_1|f(+)\oplus -\rangle_2$$
 
     This can be achieved by first applying the secret function $$f$$ on qubit 1 and then a CNOT gate on qubit 2.&#x20;
 3. Applying a Hadamard on qubit 1 and rearranging the states the output becomes $$={\frac  {1}{2}}((1+(-1)^{x})|0\rangle_1 +(1-(-1)^{x})|1\rangle_1 )|-\rangle_2$$, where $$x=f(0) \oplus f(1)$$.
@@ -47,6 +49,8 @@ To identify if $$f(0)==f(1)$$, we can calculate $$f(0) \oplus f(1)$$. Thanks to 
 
 ### Expectation vs Reality
 
-Deutsch algorithm does not have any practical application. The algorithm (and its [extensions](https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa\_algorithm)) uses exponentially fewer queries of the oracle that the classical best case, a huge improvement in principle.
+Deutsch algorithm does not have any good practical applications.&#x20;
+
+In theory the algorithm (and its [extensions](https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa\_algorithm)) uses exponentially fewer queries of the oracle that the classical best case, a huge improvement.
 
 But, in practice, the secret function is fairly contrived and we know of no application where this function is both important and expensive to query.
