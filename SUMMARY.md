@@ -8,6 +8,7 @@
 * [Bell Inequality](algorithms/bell-inequality.md)
 * [Deutsch](algorithms/deutsch.md)
 * [Bernstein-Vazirani](algorithms/bernstein-vazirani.md)
+* [Simon](algorithms/simon.md)
 
 ## Code
 
@@ -16,6 +17,7 @@
   * [Bell Inequality](code/cirq/bell-inequality.md)
   * [Deutsch](code/cirq/deutsch.md)
   * [Bernstein-Vazirani](code/cirq/bernstein-vazirani.md)
+  * [Simon](code/cirq/simon.md)
 
 ***
 
