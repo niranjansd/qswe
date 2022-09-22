@@ -8,7 +8,7 @@ description: Simplest demonstration of quantum computation
 Code : [Cirq](../code/cirq/deutsch.md)
 {% endhint %}
 
-[Deutsch's algorithm](https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa\_algorithm) is one of the simplest demonstrations of an improvement of quantum computation over classical computation using [superposition](https://en.wikipedia.org/wiki/Quantum\_superposition), [interference](https://en.wikipedia.org/wiki/Wave\_interference#Quantum\_interference) and [phase kickback](deutsch.md#undefined).
+[Deutsch's algorithm](https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa\_algorithm) is one of the simplest demonstrations of an **exponential** improvement of quantum computation over classical computation using [superposition](https://en.wikipedia.org/wiki/Quantum\_superposition), [interference](https://en.wikipedia.org/wiki/Wave\_interference#Quantum\_interference) and [phase kickback](deutsch.md#undefined).
 
 ### Objective
 
@@ -51,6 +51,6 @@ To identify if $$f(0)==f(1)$$, we can calculate $$f(0) \oplus f(1)$$. Thanks to 
 
 Deutsch algorithm does not have any good practical applications.&#x20;
 
-In theory the algorithm (and its [extensions](https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa\_algorithm)) shows a clear quantum advantage over the classical best case.
+In theory the algorithm (and its [extensions](https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa\_algorithm)) uses exponentially fewer queries of the oracle that the classical best case, a huge improvement.
 
-But, in practice, the secret function is fairly contrived and we know of no application where this function is both important and so expensive to query that a single query improvement is worth a quantum computation.
+But, in practice, the secret function is fairly contrived and we know of no application where this function is both important and expensive to query.
